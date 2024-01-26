@@ -7,6 +7,7 @@ use Valet\Contracts\PackageManager;
 use Valet\PackageManagers\Homebrew;
 use Valet\Contracts\ServiceManager;
 use Valet\PackageManagers\Dnf;
+use Valet\PackageManagers\Pacman;
 
 class PhpFpm
 {
@@ -534,13 +535,7 @@ class PhpFpm
         return $path;
     }
 
-    /**
-     * This method check package manager to skip the version for some distros,
-     * and return the version or null depend on the distro.
-     *
-     * @return string|null
-     */
-    public function getPhpVersion(): string|null
+    public function getPhpVersion()
     {
         if ($this->pm instanceof Dnf) {
             return null;
